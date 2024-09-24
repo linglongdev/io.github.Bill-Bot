@@ -1,0 +1,54 @@
+From 0358db7e479c636d00f3b75b84d55e2cb3acb3f6 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Thu, 19 Sep 2024 12:14:51 +0800
+Subject: [PATCH] install
+
+---
+ Bill-Bot.desktop | 11 +++++++++++
+ Bill-Bot.pro     | 11 +++++++----
+ 2 files changed, 18 insertions(+), 4 deletions(-)
+ create mode 100644 Bill-Bot.desktop
+
+diff --git a/Bill-Bot.desktop b/Bill-Bot.desktop
+new file mode 100644
+index 0000000..6dc2554
+--- /dev/null
++++ b/Bill-Bot.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=Bill-Bot
++Name=Bill-Bot
++Name[zh_CN]=Bill-Bot
++Icon=abstract_colorful_bg_2
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=Bill-Bot
++Version=1.0
+\ No newline at end of file
+diff --git a/Bill-Bot.pro b/Bill-Bot.pro
+index ffd5bd4..d1c9095 100644
+--- a/Bill-Bot.pro
++++ b/Bill-Bot.pro
+@@ -29,10 +29,13 @@ QML_IMPORT_PATH =
+ # Additional import path used to resolve QML modules just for Qt Quick Designer
+ QML_DESIGNER_IMPORT_PATH =
+ 
+-# Default rules for deployment.
+-qnx: target.path = /tmp/$${TARGET}/bin
+-else: unix:!android: target.path = /opt/$${TARGET}/bin
+-!isEmpty(target.path): INSTALLS += target
++target.path = $$PREFIX/bin
++desktop.files = Bill-Bot.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = images/abstract_colorful_bg_2.png
++
++INSTALLS += target desktop icons
+ 
+ HEADERS += \
+     database.h \
+-- 
+2.43.4
+
